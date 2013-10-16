@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+.des{
+	width:165px;
+	word-wrap:break-word;
+	overflow:hidden;
+		max-height:20px;
+			min-height:20px;
+
+	}
+.g-plusone{
+	width:50px;
+	}
+.module{
+	margin-left:5px;
+	margin-right:5px;
+	
+			word-wrap:break-word;
+			max-height:250px;
+			min-height:250px;
+			-webkit-box-shadow: 0px 7px 0px rgba(105, 105, 105, 0.75);
+-moz-box-shadow: 0px 7px 0px rgba(105, 105, 105, 0.75);
+	}
+.ribbon{
+	min-height:50px;
+	background:#e4e7eb;
+	line-height:50px;
+	vertical-align:middle;
+	
+	}
+.module h4{
+		max-height:2px;
+			min-height:20px;
+			overflow:hidden;	
+	}
+	.module_big{
+	margin-left:10px;
+	margin-right:10px;
+
+	padding-left:10px;
+	padding-top:10px;
+	}
+	.module_big p{
+		width:auto;
+		word-wrap:break-word;
+	text-overflow: ellipsis;
+		}
+.download{
+
+	}
+	
+html,
+body {
+  height: 100%;
+  background-color:#e4e7eb;
+  /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+  z-index:0;
+}
+#footer {
+  background-color: #eee;
+}
+.footer_text{
+	margin: 20px 0;
+	color:#333;
+	z-index:0;
+	}
+i{
+	color:#666;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+#footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+}
