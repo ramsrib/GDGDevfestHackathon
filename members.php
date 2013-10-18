@@ -1,7 +1,7 @@
 <?php 
 session_start();
 	require_once('config.ini');
-	 $sql = "SELECT * FROM projects";
+	 $sql = "SELECT * FROM user_login";
    $result = mysql_query($sql);
    $i=0;
    
@@ -68,7 +68,7 @@ $i=$i+1;
     <div class="well row ribbon">
       
     <div class=" pull-left ribbon  col-lg-9 well">
-   <h4>Total Submissions (<?php echo $i ?>)</h4>
+   <h4><?php echo $i ?> Participants</h4>
     </div>
     <div class="col-lg-3 pull-right ribbon">
      <div class="fb-like " data-href="http://www.zathrac.com/demo/hackathon/" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
