@@ -33,7 +33,7 @@ if(isset($_SESSION['login'])){
         <div class="navbar-collapse collapse pull-right">
           <ul class="nav navbar-nav">
             <li class=""><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
+            <li><a href="about.php">About</a></li><li><a href="members.php">Participants</a></li>
             <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
             <?php 
@@ -47,7 +47,7 @@ if(isset($_SESSION['login'])){
 			  else{
 				   echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{$_SESSION['member_name']} <b class='caret'></b></a>
               <ul class='dropdown-menu'>
-			   <li><a href='profile.php'>Profile</a></li>
+			   <li><a href='profile.php?me'>Profile</a></li>
 			   <li><a href='logout.php'>Logout</a></li>"; 
 				  }
 			  
@@ -60,6 +60,14 @@ if(isset($_SESSION['login'])){
       </div>
     </div>
     <div class="container">
+    <div class=" col-lg-8 pull-left" >
+<div style="padding-top:100; width:500px;">
+<img src="content/img/login.png">
+<h3>One password. All of Google.</h3>
+
+<p>Want to enjoy the best of Google? Just stay signed in. One username and password is all you need to unlock more features from services you use every day, like Gmail, Maps, Google+, and YouTube.</p>
+</div>
+ </div>
 
  <div class="well col-lg-3  pull-right" >
 

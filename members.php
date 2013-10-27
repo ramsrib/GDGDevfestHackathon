@@ -37,8 +37,9 @@ $i=$i+1;
     </form>        
     <div class="navbar-collapse collapse pull-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li ><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
+            <li class="active"><a href="members.php">Participants</a></li>
             <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
              
@@ -52,7 +53,7 @@ $i=$i+1;
 			  
 			  else{
 				   echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{$_SESSION['member_name']} <b class='caret'></b></a>
-              <ul class='dropdown-menu'> <li><a href='profile.php'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
+              <ul class='dropdown-menu'> <li><a href='profile.php?me'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
 				  }
 			  
 			  ?>
@@ -107,6 +108,44 @@ $i=$i+1;
     
     </div>
 </div>
+
+ <?php 
+			  if(isset($_SESSION['login'])){
+				  echo "
+    <div id='shoutbox'>
+   
+    <div id='chat'>
+	 <div class='chathead' id='chathead'>Chat With Other Participants</div>
+     <div id='shouts'>
+     
+	<ul>
+	 </ul>
+	 </div>
+	 <div id='write'>
+     <form class='form-inline' role='form'>
+     
+     
+    <div class='input-group'>
+ <input  type='text' class='form-control' id='shout_message' placeholder='Message' name='message'>      <span class='input-group-btn'>
+  <input type='hidden' id='shout_name' name='name' value='{$_SESSION['member_name']} '>
+
+ <button  type='submit' class='btn btn-group-xs'  id='shout_button' type='button' value='Send'>Send</button>
+      </span>
+    </div><!-- /input-group -->
+</div><!-- /.row -->
+	  
+      
+       </form>
+	 </div>
+     <div class='chathead' style='position:fixed;bottom:0' id='chathead_bottom'>Chat Room</div>
+   </div>
+   
+   
+   </div>
+   
+</div>";
+			  }
+?>
 <div id="footer">
       <div class="container">
         <p class="footer_text">Designed By GDG Chennai Design Team. </p>
@@ -117,6 +156,7 @@ $i=$i+1;
 </body>
 <script src="content/js/jquery.js"></script>
 <script src="content/js/bootstrap.js"></script>
+<script src="content/js/script.js"></script>
 
 <script type="text/javascript">
   (function() {

@@ -39,20 +39,25 @@ $i=$i+1;
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
+            <li><a href="members.php">Participants</a></li>
             <li><a href="submit.php">Submit</a></li>
+            
             <li class="dropdown">
              
               <?php 
 			  if(isset($_SESSION['login'])!=1){
 				  echo '
 				   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register <b class="caret"></b></a>
-              <ul class="dropdown-menu"><li><a href="login.php">Login</a></li>
+              <ul class="dropdown-menu">
+			  
+			
+			  <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Register</a></li>'; 
 			  }
 			  
 			  else{
 				   echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{$_SESSION['member_name']} <b class='caret'></b></a>
-              <ul class='dropdown-menu'> <li><a href='profile.php'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
+              <ul class='dropdown-menu'> <li><a href='profile.php?me'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
 				  }
 			  
 			  ?>
@@ -112,27 +117,45 @@ $i=$i+1;
 	
    ?>
     </div>
-    
-    <body class="chat" id="chat" onload="setInterval('chat.update()', 1000)">
-    
-    <div id="page-wrap">
-    
-      
-        <div id="chat-wrap">
-        <div id="chat-area">
-        </div>
-        </div>
-        
-        <form id="send-message-area">
-            <textarea id="sendie" maxlength = '100' ></textarea>
-        </form>
-    </div>
-    </body>
+  </div>
+   <?php 
+			  if(isset($_SESSION['login'])){
+				  echo "
+    <div id='shoutbox'>
+   
+    <div id='chat'>
+	 <div class='chathead' id='chathead'>Chat With Other Participants</div>
+     <div id='shouts'>
+     
+	<ul>
+	 </ul>
+	 </div>
+	 <div id='write'>
+     <form class='form-inline' role='form'>
+     
+     
+    <div class='input-group'>
+ <input  type='text' class='form-control' id='shout_message' placeholder='Message' name='message'>      <span class='input-group-btn'>
+  <input type='hidden' id='shout_name' name='name' value='{$_SESSION['member_name']} '>
 
-    
-    
-    </div>
-</div>
+ <button  type='submit' class='btn btn-group-xs'  id='shout_button' type='button' value='Send'>Send</button>
+      </span>
+    </div><!-- /input-group -->
+</div><!-- /.row -->
+	  
+      
+       </form>
+	 </div>
+     <div class='chathead' style='position:fixed;bottom:0' id='chathead_bottom'>Chat Room</div>
+   </div>
+   
+   
+   </div>
+   
+</div>";
+			  }
+?>
+
 <div id="footer">
       <div class="container">
         <p class="footer_text">Designed By GDG Chennai Design Team. </p>
@@ -143,15 +166,7 @@ $i=$i+1;
 </body>
 <script src="content/js/jquery.js"></script>
 <script src="content/js/bootstrap.js"></script>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
+<script src="content/js/script.js"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -161,75 +176,11 @@ $i=$i+1;
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
- <script type="text/javascript" src="chat/chat.js"></script>
-    <script type="text/javascript">
-	<?php 
-	 
-	$name=$_SESSION['member_name'];
-	echo 'var name = "'.$name.'"';
-	 ?>
-        // ask user for name with popup prompt    
-        //var name = prompt("Enter your chat name:", "Guest");
-        
-        // default name is 'Guest'
-    	if (!name || name === ' ') {
-    	   name = "Guest";	
-    	}
-    	
-    	// strip tags
-    	name = name.replace(/(<([^>]+)>)/ig,"");
-    	
-    	// display name on page
-    	$("#name-area").html("You are: <span>" + name + "</span>");
-    	
-    	// kick off chat
-        var chat =  new Chat();
-    	$(function() {
-    	
-    		 chat.getState(); 
-    		 
-    		 // watch textarea for key presses
-             $("#sendie").keydown(function(event) {  
-             
-                 var key = event.which;  
-           
-                 //all keys including return.  
-                 if (key >= 33) {
-                   
-                     var maxLength = $(this).attr("maxlength");  
-                     var length = this.value.length;  
-                     
-                     // don't allow new content if length is maxed out
-                     if (length >= maxLength) {  
-                         event.preventDefault();  
-                     }  
-                  }  
-    		 																																																});
-    		 // watch textarea for release of key press
-    		 $('#sendie').keyup(function(e) {	
-    		 					 
-    			  if (e.keyCode == 13) { 
-    			  
-                    var text = $(this).val();
-    				var maxLength = $(this).attr("maxlength");  
-                    var length = text.length; 
-                     
-                    // send 
-                    if (length <= maxLength + 1) { 
-                     
-    			        chat.send(text, name);	
-    			        $(this).val("");
-    			        
-                    } else {
-                    
-    					$(this).val(text.substring(0, maxLength));
-    					
-    				}	
-    				
-    				
-    			  }
-             });
-            
-    	});
-    </script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 </html>

@@ -28,6 +28,7 @@ require_once('config.ini');
           <ul class="nav navbar-nav">
             <li class=""><a href="index.php">Home</a></li>
             <li class="active"><a href="about.php">About</a></li>
+            <li><a href="members.php">Participants</a></li>
                 <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
               <?php 
@@ -40,7 +41,7 @@ require_once('config.ini');
 			  
 			  else{
 				   echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{$_SESSION['member_name']} <b class='caret'></b></a>
-              <ul class='dropdown-menu'> <li><a href='profile.php'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
+              <ul class='dropdown-menu'> <li><a href='profile.php?me'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
 				  }
 			  
 			  ?>

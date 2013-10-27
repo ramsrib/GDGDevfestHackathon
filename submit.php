@@ -6,9 +6,11 @@ if(isset($_SESSION['login'])!=1){
 ?>
 <html>
 <link href="content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="content/css/style.css" rel="stylesheet" type="text/css" />
+
 <title>Devfest Chennai 2013 Hackathon</title>
 <body>
-	
+	<div id="wrap">
 <div class="navbar navbar-default ">
       <div class="container">
         <div class="navbar-header">
@@ -29,6 +31,7 @@ if(isset($_SESSION['login'])!=1){
           <ul class="nav navbar-nav">
             <li class=""><a href="index.php">Home</a></li>
             <li ><a href="about.php">About</a></li>
+            <li><a href="members.php">Participants</a></li>
             <li class="active"><a href="submit.php">Submit</a></li>
             <li class="dropdown">
               <?php 
@@ -41,7 +44,7 @@ if(isset($_SESSION['login'])!=1){
 			  
 			  else{
 				   echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{$_SESSION['member_name']} <b class='caret'></b></a>
-              <ul class='dropdown-menu'> <li><a href='profile.php'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
+              <ul class='dropdown-menu'> <li><a href='profile.php?me'>Profile</a></li><li><a href='logout.php'>Logout</a></li>"; 
 				  }
 			  
 			  ?>
@@ -69,11 +72,54 @@ enctype="multipart/form-data">
 </form>
 </div>
     </div>
+ <?php 
+			  if(isset($_SESSION['login'])){
+				  echo "
+    <div id='shoutbox'>
+   
+    <div id='chat'>
+	 <div class='chathead' id='chathead'>Chat With Other Participants</div>
+     <div id='shouts'>
+     
+	<ul>
+	 </ul>
+	 </div>
+	 <div id='write'>
+     <form class='form-inline' role='form'>
+     
+     
+    <div class='input-group'>
+ <input  type='text' class='form-control' id='shout_message' placeholder='Message' name='message'>      <span class='input-group-btn'>
+  <input type='hidden' id='shout_name' name='name' value='{$_SESSION['member_name']} '>
 
+ <button  type='submit' class='btn btn-group-xs'  id='shout_button' type='button' value='Send'>Send</button>
+      </span>
+    </div><!-- /input-group -->
+</div><!-- /.row -->
+	  
+      
+       </form>
+	 </div>
+     <div class='chathead' style='position:fixed;bottom:0' id='chathead_bottom'>Chat Room</div>
+   </div>
+   
+   
+   </div>
+   
+</div>";
+			  }
+?>
+</div>
+<div id="footer">
+      <div class="container">
+        <p class="footer_text">Designed By GDG Chennai Design Team.</p>
+      </div>
+    </div>
 </body>
 <script src="content/js/jquery.js"></script>
 <script src="content/js/bootstrap.js"></script>
 <script src="content/js/jqBootstrapValidation.js"></script>
+<script src="content/js/script.js"></script>
 
 <script>
 function formReset()
