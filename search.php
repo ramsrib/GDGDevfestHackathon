@@ -29,6 +29,7 @@ require_once('config.ini');
             <li class=""><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="members.php">Participants</a></li>
+            <li><a href="team.php">Team</a></li>
             <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
               <?php 

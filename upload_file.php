@@ -17,8 +17,17 @@ if (file_exists("uploads/" . $_FILES["file"]["name"]))
 	  $path="uploads/" . $_FILES["file"]["name"];
 	  $author=$_SESSION['member_name'];
 	  $username=$_SESSION['member_id'];
+   if($_SESSION['tname']==NULL){
+	   $tname=$_SESSION['member_id'];
+	  
+	   }
+	   else{
+		    $tname=$_SESSION['tname'];
+			 }
+	   
+   
 	  $sql="INSERT INTO projects (name, description, tags, path,author,username) VALUES
-('$name', '$description', '$tag', '$path','$author','$username' )";
+('$name', '$description', '$tag', '$path','$tname','$username' )";
 mysql_query($sql);
 
 header('Location:'.'index.php');

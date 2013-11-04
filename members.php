@@ -40,6 +40,7 @@ $i=$i+1;
             <li ><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li class="active"><a href="members.php">Participants</a></li>
+            <li><a href="team.php">Team</a></li>
             <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
              
@@ -94,6 +95,18 @@ $i=$i+1;
 	 
 	<h5>{$db_field['username']}</h5>
 	<h5><i>{$db_field['email']}</i></h5>
+	<h5>{$db_field['category']}</h5>";
+	?>
+	<?php
+	if ($db_field['tname']==NULL)
+	{
+		$team='Individual paritcipate';
+		} 
+		else {
+			$team='Team '.$db_field['tname'];
+			}
+	echo"
+	<h5>{$team}</h5>
 	</div>";  
 
 }

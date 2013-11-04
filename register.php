@@ -34,6 +34,8 @@ if(isset($_SESSION['login'])){
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
+             <li><a href="members.php">Participants</a></li>
+            <li><a href="team.php">Team</a></li>
             <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
              <?php 
@@ -85,11 +87,13 @@ if(isset($_GET['msg']))
 
 </select><br>
 
-<label for="pass">Password:</label> <input type="password" name="pass"class="form-control" required><br>
-<label for="re_pass">Retype Password:</label> <input type="password" name="re_pass"class="form-control" data-validation-matches-match="pass" 
+<label for="pass">Password:</label> <input type="password" name="pass" class="form-control" id="password" required><br>
+<label for="re_pass">Retype Password:</label> <input type="password" name="re_pass"class="form-control" 
+data-validation-matches-match="pass" 
   data-validation-matches-message=
     "Must match email address entered above" ><br>
 <input type="submit" name="submit" class="btn btn-primary">
+<p class="help-block"></p>
 </form>
  </div>
 

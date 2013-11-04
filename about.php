@@ -29,6 +29,7 @@ require_once('config.ini');
             <li class=""><a href="index.php">Home</a></li>
             <li class="active"><a href="about.php">About</a></li>
             <li><a href="members.php">Participants</a></li>
+            <li><a href="team.php">Team</a></li>
                 <li><a href="submit.php">Submit</a></li>
             <li class="dropdown">
               <?php 
@@ -54,8 +55,8 @@ require_once('config.ini');
 </div>
 <div class="container "><center>
 
- <h1><br /> GDG DevFest 2013 </h1>
- <h3><i>Design Team</i></h3>
+ <h1><br /> GDG DevFest 2013 </h1><br>
+  <iframe src="https://docs.google.com/document/d/1NpZeKiUuWZHAm3xMLfbNxtojN8Cz9CudatDY3qoHUEQ/pub?embedded=true" frameborder="0" width="850" height="1500"></iframe><br><br>
  </center>
 </div>
 
